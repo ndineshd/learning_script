@@ -4,15 +4,38 @@ btntranslate.addEventListener(function clickEventHandler() {
 }
 */
 
-var inputBtn = document.querySelector("#input-btn");
+var btnTranslate = document.querySelector("#input-btn");
 var textInput = document.querySelector("#txt-input");
-var outputdiv=document.querySelector("#output");
+var outputDiv=document.querySelector("#output");
  
-//console.log(outputdiv)
+//var serverURL = "https://predictor.yandex.net/suggest.json/complete"
+//var serverURL = "https://api.funtranslations.com/translate/minion.json"
+var serverURL = "https://api.funtranslations.com/translate/pirate.json"
+
+function getTranslationURL(input){
+   return  serverURL + "?" + "text=" + input
+}
+
+function errorHandler(error) {
+   console.log("error occured", error)
+   alert("something went wrong please try again later")
+}
 
  function clickHandler() {
-    outputdiv.innerText = textInput.value;
+   // outputdiv.innerText = textInput.value;
+
+   var inputText = textInput.value; //taking input
+
+   //calling server for processing
+   fetch(getTranslationURL(inputText))
+   .then(response => response.json())
+   .then(json => {
+      var translatedText = json.contents.translated;
+      outputDiv.innerText = translatedText; //output
+      
+   })
+   .catch(errorHandler)
     
  };
 
- inputBtn.addEventListener("click", clickHandler);
+ btnTranslate.addEventListener("click", clickHandler);

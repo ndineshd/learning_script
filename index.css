@@ -1,0 +1,27 @@
+textarea {
+    width: 80%;
+    height: 10vh;
+    display: block;
+    margin: 1rem;
+    padding: 1rem;
+    border-style: dashed;
+}
+#output {
+     border: 1px solid black;
+     height: 10vh;
+     width: 80%;
+     margin: 1rem;
+     padding: 1rem;
+}
+.btn-primary {
+    background-color: rgb(6, 158, 6);
+    padding: 8px;
+    font-weight: bold;
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
+.btndiv {
+    width: 80%;
+    text-align: center;
+}
